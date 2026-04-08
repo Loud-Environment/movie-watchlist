@@ -35,13 +35,13 @@ searchForm.addEventListener("submit", (e) => {
 
   searchInput.value = "";
 
-  fetch(`http://www.omdbapi.com/?s=${query}&apikey=345a7391`)
+  fetch(`https://www.omdbapi.com/?s=${query}&apikey=345a7391`)
     .then((res) => res.json())
     .then((searchData) => {
       movieArray = [];
       if (searchData.Response === "True") {
         searchData.Search.forEach((movie) => {
-          fetch(`http://www.omdbapi.com/?i=${movie.imdbID}&apikey=345a7391`)
+          fetch(`https://www.omdbapi.com/?i=${movie.imdbID}&apikey=345a7391`)
             .then((res) => res.json())
             .then((data) => {
               movieArray.push(data);
