@@ -1,0 +1,327 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+textarea {
+  overflow: auto;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/**** ****
+    Layout 
+**** ****/
+
+/* Styling the header */
+
+.hidden {
+  display: none;
+}
+
+header {
+  position: relative;
+  padding: 80px 10vw;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.search-group {
+  display: flex;
+  width: 80vw;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  translate: -50% 50%;
+}
+.search-group input {
+  min-width: 0;
+  flex: 70;
+  background-image: url(images/search-icon.png);
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  background-size: 20px 20px;
+}
+
+.search-group button {
+  flex: 30;
+}
+
+/* Styling the main */
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 63px 10vw;
+}
+
+.placeholder {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+main div.placeholder-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dfdddd;
+}
+
+/* Styling the movie cards  */
+
+.movie-section hr {
+  margin: 21px 0;
+}
+
+.wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.movie-section img {
+  width: 110px;
+}
+
+.movie-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.movie-title,
+.movie-meta {
+  display: flex;
+  align-items: center;
+}
+
+.movie-title,
+.movie-meta {
+  gap: 10px;
+}
+
+.movie-meta {
+  gap: 30px;
+}
+
+.fa-circle-plus {
+  margin-right: 5px;
+}
+
+.add-to-watchlist-btn,
+.remove-from-watchlist-btn {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.add-to-watchlist-btn:focus,
+.add-to-watchlist-btn:hover,
+.remove-from-watchlist-btn:focus,
+.remove-from-watchlist-btn:hover {
+  text-decoration: underline;
+}
+
+/**** ****
+    Typography 
+**** ****/
+
+/* Styling the header */
+
+header {
+  color: white;
+  background-image: url(images/header-background.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #474646;
+  background-blend-mode: multiply;
+}
+
+h1 {
+  font-weight: 800;
+  font-size: 42px;
+}
+
+a {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  padding: 5px 0;
+  outline: none;
+  cursor: pointer;
+}
+
+a:visited {
+  color: white;
+}
+
+a:focus,
+a:active {
+  color: #ffffff9e;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #ffffff9e;
+  text-decoration: underline;
+}
+
+.search-group input {
+  font-size: 1rem;
+  color: #6b7280;
+  padding: 15px 15px 15px calc(15px + 20px + 8px);
+  border-left: 1px solid #d1d5db;
+  border-bottom: 1px solid #d1d5db;
+  border-top: 1px solid #d1d5db;
+  border-right: none;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  overflow: auto;
+}
+
+button#search-btn {
+  padding: 15px 20px;
+  font-size: 1rem;
+  color: #374151;
+  background-color: #f9fafb;
+  border: 1px solid #d1d5db;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  cursor: pointer;
+}
+
+button#search-btn:hover,
+button#search-btn:focus {
+  background-color: white;
+}
+
+button#search-btn:active {
+  background-color: black;
+  color: white;
+}
+
+/* Styling the main */
+
+h2 {
+  font-size: 18px;
+  text-align: center;
+  max-width: 400px;
+}
+
+i.fa-film {
+  font-size: 4rem;
+}
+
+/* Styling the movie cards  */
+
+h4 {
+  font-size: 18px;
+}
+
+div.movie-title p {
+  font-size: 12px;
+}
+
+.fa-star {
+  color: #fec654;
+  font-size: 11px;
+}
+
+.movie-meta,
+.movie-data {
+  color: #111827;
+}
+
+.movie-data > p {
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+.main-anchor {
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.main-anchor:visited {
+  color: black;
+}
+
+/* link
+visited
+focus
+active
+hover
+LoVeFearsHate */
+
+/***************
+   Media queries 
+***************/
+
+@media screen and (min-width: 40em) {
+  /**** ****
+    Layout 
+  **** ****/
+
+  header {
+    position: relative;
+    padding: calc(80px * 1.5) 10vw;
+  }
+
+  nav {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /**** ****
+    Typography 
+  **** ****/
+
+  .search-group input {
+    font-size: 1.125rem;
+  }
+
+  button#search-btn {
+    font-size: 1.125rem;
+    padding: 10px 35px;
+  }
+
+  h1 {
+    font-size: calc(42px * 1.3);
+  }
+
+  a {
+    font-size: calc(20px * 1.3);
+  }
+}
