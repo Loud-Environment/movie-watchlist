@@ -104,11 +104,13 @@ main div.placeholder-container {
 
 .wrapper {
   display: flex;
+  align-items: center;
   gap: 20px;
 }
 
 .movie-section img {
-  width: 110px;
+  max-width: 90px;
+  border-radius: 6px;
 }
 
 .movie-data {
@@ -124,17 +126,23 @@ main div.placeholder-container {
   align-items: center;
 }
 
-.movie-title,
-.movie-meta {
+.movie-title {
   gap: 10px;
+  justify-content: space-between;
+}
+
+.movie-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  /* flex: 1; */
 }
 
 .movie-meta {
-  gap: 30px;
+  gap: 15px;
 }
 
 .fa-circle-plus {
-  margin-right: 5px;
 }
 
 .add-to-watchlist-btn,
@@ -142,6 +150,8 @@ main div.placeholder-container {
   background-color: white;
   border: none;
   cursor: pointer;
+  display: flex;
+  gap: 5px;
 }
 
 .add-to-watchlist-btn:focus,
@@ -245,7 +255,7 @@ i.fa-film {
 /* Styling the movie cards  */
 
 h4 {
-  font-size: 18px;
+  font-size: 14px;
 }
 
 div.movie-title p {
@@ -262,9 +272,18 @@ div.movie-title p {
   color: #111827;
 }
 
+.movie-meta p {
+  font-size: 12px;
+}
+
+.add-to-watchlist-btn {
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
 .movie-data > p {
   color: #6b7280;
-  font-size: 1rem;
+  font-size: 0.75rem;
 }
 
 .main-anchor {

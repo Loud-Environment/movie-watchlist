@@ -80,7 +80,7 @@ function render() {
                   <div class="movie-data">
                     <div class="movie-title">
                       <h4>${movieObject.Title || "N/A"}</h4>
-                      <p><i class="fa-solid fa-star"></i> ${movieObject.Ratings[0]?.Value ?? "N/A"}</p> 
+                      <p class="movie-rating"><i class="fa-solid fa-star"></i> ${movieObject.Ratings[0]?.Value ?? "N/A"}</p> 
                     </div>
                     <div class="movie-meta">
                       <p>${movieObject.Runtime || "N/A"}</p>
