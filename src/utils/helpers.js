@@ -1,6 +1,7 @@
-export function getSearchParams(setSearchedMovie, movie) {
+export function getSearchParams(setMovie, movie) {
   return (formData) => {
+    setMovie([]);
     const movieName = formData.get("search-input");
-    setSearchedMovie(movieName);
+    setMovie(movieName);
   };
 }

@@ -6,11 +6,11 @@ import { MovieList } from "../Components/MovieList";
 
 export default function Home() {
   const [movie, setMovie] = React.useState(null);
-  const { movieArray } = useMovieSearch(movie);
+  const { movieArray, error } = useMovieSearch(movie);
+  // console.log(error);
 
   return (
     <div className="wrapper placeholder-container">
-      {console.log(movieArray)}
       <form
         action={getSearchParams(setMovie, movie)}
         className="search-group"
@@ -29,6 +29,8 @@ export default function Home() {
       </form>
       {movieArray && movieArray.length > 0 ? (
         <MovieList movieArray={movieArray} />
+      ) : error ? (
+        <h2 className="error-message">{error}</h2>
       ) : (
         <Placeholder />
       )}

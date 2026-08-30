@@ -100,6 +100,13 @@ main div.placeholder-container {
   color: #dfdddd;
 }
 
+h2.error-message {
+  color: white;
+  background-color: #9e2a2b;
+  padding: 0.5em 1em;
+  border-radius: 10px;
+}
+
 /* Styling the movie cards  */
 
 .movie-section hr {
