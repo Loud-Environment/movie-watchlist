@@ -1,7 +1,8 @@
 import React from "react";
 import PlaceHolderImage from "../assets/placeholder-image.png";
+import { handleWatchListClick } from "../utils/helpers";
 
-export default function MovieSection({ movieObject }) {
+export default function MovieSection({ movieObject, setSavedMoviesArray }) {
   return (
     <section className="movie-section">
       <div className="wrapper">
@@ -25,6 +26,14 @@ export default function MovieSection({ movieObject }) {
           <div className="movie-meta">
             <p>{movieObject.Runtime || "N/A"}</p>
             <p>{movieObject.Genre || "N/A"}</p>
+            <button
+              className="add-to-watchlist-btn"
+              onClick={() =>
+                handleWatchListClick(movieObject, setSavedMoviesArray)
+              }
+            >
+              <i className="fa-solid fa-circle-plus"></i> Watchlist
+            </button>
           </div>
           <p>{movieObject.Plot || "N/A"}</p>
         </div>

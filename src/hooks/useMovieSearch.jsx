@@ -7,9 +7,12 @@ export default function useMovieSearch(movie) {
 
   React.useEffect(() => {
     async function fetchMovieIDs(movie) {
-      const params = new URLSearchParams({ s: movie });
+      const params = new URLSearchParams({ s: movie, page: 1 });
 
       try {
+        setError(null);
+        setMovieArray([]);
+        setIsLoading(true);
         const firstRes = await fetch(
           `https://www.omdbapi.com/?${params}&apikey=345a7391`,
         );
@@ -20,12 +23,10 @@ export default function useMovieSearch(movie) {
 
         const searchData = await firstRes.json();
 
-        console.log(searchData);
-
         if (searchData.Response === "True") {
           const newMovieArray = [];
 
-          for (movie of searchData.Search) {
+          for (const movie of searchData.Search) {
             const secondRes = await fetch(
               `https://www.omdbapi.com/?i=${movie.imdbID}&apikey=345a7391`,
             );
@@ -34,17 +35,8 @@ export default function useMovieSearch(movie) {
           }
 
           setMovieArray(newMovieArray);
-
-          // searchData.Search.forEach((movie) => {
-          //   console.log(movie);
-          //   fetch(`https://www.omdbapi.com/?i=${movie.imdbID}&apikey=345a7391`)
-          //     .then((res) => res.json())
-          //     .then((data) => {
-          //       setMovieArray((prev) => [...prev, data]);
-          //       console.log(data);
-          //     });
-          // });
         } else {
+          setMovieArray([]);
           throw {
             response: searchData.Response,
             errorMessage: searchData.Error,
@@ -53,11 +45,12 @@ export default function useMovieSearch(movie) {
       } catch (err) {
         setError(err.errorMessage);
       } finally {
+        setIsLoading(false);
       }
     }
 
     movie && fetchMovieIDs(movie);
   }, [movie]);
 
-  return { movieArray, error };
+  return { movieArray, error, isLoading };
 }

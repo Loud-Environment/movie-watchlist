@@ -1,14 +1,18 @@
 import React from "react";
+import { MovieList } from "../Components/MovieList";
+import Placeholder from "../Components/Placeholder";
 
 export default function Watchlist() {
-  return (
-    <div class="wrapper placeholder-container">
-      <section class="placeholder">
-        <h2>Your watchlist is looking a little empty...</h2>
-        <a class="main-anchor" href="../index.html">
-          <i class="fa-solid fa-circle-plus"> </i>Let’s add some movies!
-        </a>
-      </section>
-    </div>
+  const [savedMoviesArray, setSavedMoviesArray] = React.useState(
+    JSON.parse(localStorage.getItem("watchlist") ?? "[]"),
+  );
+
+  return savedMoviesArray.length > 0 ? (
+    <MovieList
+      movieArray={savedMoviesArray}
+      setSavedMoviesArray={setSavedMoviesArray}
+    />
+  ) : (
+    <Placeholder origin="watchlist" />
   );
 }

@@ -1,20 +1,14 @@
 import React from "react";
 import MovieSection from "./MovieSection";
 
-export function MovieList({ movieArray }) {
+export function MovieList({ movieArray, setSavedMoviesArray }) {
   const movieSections = movieArray.map((movieObject) => (
-    <MovieSection movieObject={movieObject} key={movieObject.imdbID} />
+    <MovieSection
+      movieObject={movieObject}
+      key={movieObject.imdbID}
+      setSavedMoviesArray={setSavedMoviesArray}
+    />
   ));
 
   return <div>{movieSections}</div>;
 }
-
-// <button
-//   ${isInWatchList(movieObject.imdbID) ? "disabled" : ""}
-//   id="${movieObject.imdbID}"
-//   class="add-to-watchlist-btn"
-//   data-movie-imdbID="${movieObject.imdbID}"
-//   >
-
-//     ${isInWatchList(movieObject.imdbID) ? "In watchlist" : '<i class="fa-solid fa-circle-plus"></i> Watchlist'}
-// </button>

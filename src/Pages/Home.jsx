@@ -6,7 +6,8 @@ import { MovieList } from "../Components/MovieList";
 
 export default function Home() {
   const [movie, setMovie] = React.useState(null);
-  const { movieArray, error } = useMovieSearch(movie);
+  const { movieArray, error, isLoading } = useMovieSearch(movie);
+
   // console.log(error);
 
   return (
@@ -23,7 +24,7 @@ export default function Home() {
           id="search-input"
           name="search-input"
         />
-        <button id="search-btn" type="submit">
+        <button id="search-btn" type="submit" disabled={isLoading}>
           Search
         </button>
       </form>
@@ -31,8 +32,10 @@ export default function Home() {
         <MovieList movieArray={movieArray} />
       ) : error ? (
         <h2 className="error-message">{error}</h2>
+      ) : isLoading ? (
+        <h2>Loading...</h2>
       ) : (
-        <Placeholder />
+        <Placeholder origin="home" />
       )}
     </div>
   );
