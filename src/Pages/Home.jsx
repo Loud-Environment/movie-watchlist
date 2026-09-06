@@ -7,8 +7,9 @@ import { MovieList } from "../Components/MovieList";
 export default function Home() {
   const [movie, setMovie] = React.useState(null);
   const { movieArray, error, isLoading } = useMovieSearch(movie);
-
-  // console.log(error);
+  const [savedMoviesArray, setSavedMoviesArray] = React.useState(
+    JSON.parse(localStorage.getItem("watchlist") ?? "[]"),
+  );
 
   return (
     <div className="wrapper placeholder-container">
@@ -29,7 +30,11 @@ export default function Home() {
         </button>
       </form>
       {movieArray && movieArray.length > 0 ? (
-        <MovieList movieArray={movieArray} />
+        <MovieList
+          movieArray={movieArray}
+          savedMoviesArray={savedMoviesArray}
+          setSavedMoviesArray={setSavedMoviesArray}
+        />
       ) : error ? (
         <h2 className="error-message">{error}</h2>
       ) : isLoading ? (

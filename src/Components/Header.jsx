@@ -1,14 +1,19 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 export default function Header() {
+  const location = useLocation();
+  const headerText =
+    location.pathname === "/" ? "Find your film" : "My Watchlist";
+  const linkText = location.pathname === "/" ? "My Watchlist" : "Search films";
+
   return (
     <header>
       <nav>
-        <Link className="site-logo" to="/">
-          Find your film
-        </Link>
-        <NavLink to="/watchlist">My Watchlist</NavLink>
+        <h1>{headerText}</h1>
+        <NavLink to={location.pathname === "/" ? "/watchlist" : "/"}>
+          {linkText}
+        </NavLink>
       </nav>
     </header>
   );

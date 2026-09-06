@@ -162,6 +162,7 @@ h2.error-message {
   border: none;
   cursor: pointer;
   display: flex;
+  align-items: center;
   gap: 5px;
 }
 

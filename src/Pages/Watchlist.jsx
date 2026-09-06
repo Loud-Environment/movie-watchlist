@@ -10,6 +10,7 @@ export default function Watchlist() {
   return savedMoviesArray.length > 0 ? (
     <MovieList
       movieArray={savedMoviesArray}
+      savedMoviesArray={savedMoviesArray}
       setSavedMoviesArray={setSavedMoviesArray}
     />
   ) : (

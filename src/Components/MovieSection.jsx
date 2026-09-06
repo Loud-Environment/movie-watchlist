@@ -2,7 +2,15 @@ import React from "react";
 import PlaceHolderImage from "../assets/placeholder-image.png";
 import { handleWatchListClick } from "../utils/helpers";
 
-export default function MovieSection({ movieObject, setSavedMoviesArray }) {
+export default function MovieSection({
+  movieObject,
+  setSavedMoviesArray,
+  savedMoviesArray,
+}) {
+  const isInWatchList = savedMoviesArray.some(
+    (movie) => movieObject.imdbID === movie.imdbID,
+  );
+
   return (
     <section className="movie-section">
       <div className="wrapper">
@@ -32,7 +40,15 @@ export default function MovieSection({ movieObject, setSavedMoviesArray }) {
                 handleWatchListClick(movieObject, setSavedMoviesArray)
               }
             >
-              <i className="fa-solid fa-circle-plus"></i> Watchlist
+              {!isInWatchList ? (
+                <>
+                  <i className="fa-solid fa-circle-plus"></i> Watchlist
+                </>
+              ) : (
+                <>
+                  <i className="fa-solid fa-circle-minus"></i> Remove
+                </>
+              )}
             </button>
           </div>
           <p>{movieObject.Plot || "N/A"}</p>

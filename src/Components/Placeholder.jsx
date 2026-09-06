@@ -13,7 +13,7 @@ export default function Placeholder({ origin }) {
       <section className="placeholder">
         <h2>Your watchlist is looking a little empty...</h2>
         <Link to="/" className="main-anchor">
-          <i className="fa-solid fa-circle-plus"></i>Let’s add some movies!
+          <i className="fa-solid fa-circle-plus"></i> Let’s add some movies!
         </Link>
       </section>
     </div>

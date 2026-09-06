@@ -14,6 +14,7 @@ export function handleWatchListClick(movieObject, setSavedMoviesArray) {
   if (!isAlreadySaved) {
     saved.push(movieObject);
     localStorage.setItem("watchlist", JSON.stringify(saved));
+    setSavedMoviesArray(saved);
   } else if (isAlreadySaved) {
     const updatedMovieArray = saved.filter(
       (movie) => movieObject.imdbID !== movie.imdbID,
