@@ -1,14 +1,31 @@
 import React from "react";
 
-export default function useMovieSearch(movie) {
+export default function useMovieSearch(movie, filters) {
   const [movieArray, setMovieArray] = React.useState([]);
   const [error, setError] = React.useState();
   const [isLoading, setIsLoading] = React.useState(false);
 
+  {
+    /** 
+    
+    Что получилось: сделать черновые кнопки с фильтрами и передать их в хук, 
+    он их успешно видит и выводит в консоль.
+
+    Что не получилось:
+     - Почему-то если Movie не меняется, но меняется filters, например type, 
+     новый фетч не срабатывает
+     - Не подцепил filters к фетчу, он пока только выводится в консоль
+     - Не сделал нормальный дизайн для фильтров
+
+    **/
+  }
+
   React.useEffect(() => {
     async function fetchMovieIDs(movie) {
-      const params = new URLSearchParams({ s: movie, page: 1 });
+      const params = new URLSearchParams({ s: movie });
+      console.log(filters);
 
+      console.log(`https://www.omdbapi.com/?${params}&apikey=345a7391`);
       try {
         setError(null);
         setMovieArray([]);
@@ -49,7 +66,7 @@ export default function useMovieSearch(movie) {
       }
     }
 
-    movie && fetchMovieIDs(movie);
+    movie && fetchMovieIDs(movie, filters);
   }, [movie]);
 
   return { movieArray, error, isLoading };

@@ -6,7 +6,11 @@ import { MovieList } from "../Components/MovieList";
 
 export default function Home() {
   const [movie, setMovie] = React.useState(null);
-  const { movieArray, error, isLoading } = useMovieSearch(movie);
+  const [filters, setFilters] = React.useState({
+    type: "",
+    y: "",
+  });
+  const { movieArray, error, isLoading } = useMovieSearch(movie, filters);
   const [savedMoviesArray, setSavedMoviesArray] = React.useState(
     JSON.parse(localStorage.getItem("watchlist") ?? "[]"),
   );
@@ -14,20 +18,39 @@ export default function Home() {
   return (
     <div className="wrapper placeholder-container">
       <form
-        action={getSearchParams(setMovie, movie)}
         className="search-group"
-        id="search-form"
+        action={getSearchParams(setMovie, setFilters)}
       >
-        <input
-          aria-label="Search for a movide"
-          placeholder="Search for a movie"
-          type="text"
-          id="search-input"
-          name="search-input"
-        />
-        <button id="search-btn" type="submit" disabled={isLoading}>
-          Search
-        </button>
+        <div className="search-line">
+          <input
+            aria-label="Search for a movie"
+            placeholder="Search for a movie"
+            type="text"
+            id="search-input"
+            name="search-input"
+          />
+          <button id="search-btn" type="submit" disabled={isLoading}>
+            Search
+          </button>
+        </div>
+        <div className="search-filters">
+          <label htmlFor="movie-type">Type</label>
+          <select id="movie-type" name="movie-type">
+            <option value="">--any--</option>
+            <option value="Movie">Movie</option>
+            <option value="Series">Series</option>
+            <option value="Episode">Episode</option>
+          </select>
+          <label htmlFor="movie-year">Year</label>
+          <input
+            type="number"
+            id="movie-year"
+            name="movie-year"
+            placeholder="1997"
+            min="1888"
+            max="9999"
+          ></input>
+        </div>
       </form>
       {movieArray && movieArray.length > 0 ? (
         <MovieList

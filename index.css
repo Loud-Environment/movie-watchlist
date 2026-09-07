@@ -54,14 +54,19 @@ nav {
 }
 
 .search-group {
-  display: flex;
   width: 80vw;
   position: absolute;
   top: 0;
   left: 50%;
   translate: -50% -50%;
 }
-.search-group input {
+
+.search-line {
+  display: flex;
+  position: relative;
+}
+
+#search-input {
   min-width: 0;
   flex: 70;
   background-image: url(images/search-icon.png);
@@ -70,8 +75,37 @@ nav {
   background-size: 20px 20px;
 }
 
-.search-group button {
+.search-line button {
   flex: 30;
+}
+
+.search-filters {
+  position: absolute;
+  bottom: -25%;
+  translate: 0 100%;
+}
+
+.search-filters label,
+.search-filters input {
+  display: block;
+}
+
+.search-filters label {
+  margin-bottom: 5px;
+  color: #374151;
+}
+
+.search-filters input,
+.search-filters select,
+.search-filters option {
+  font-size: 1rem;
+  color: #6b7280;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.search-filters input {
+  width: 100px;
 }
 
 /* Styling the main */
@@ -219,7 +253,7 @@ a:hover {
   text-decoration: underline;
 }
 
-.search-group input {
+#search-input {
   font-size: 1rem;
   color: #6b7280;
   padding: 15px 15px 15px 35px;

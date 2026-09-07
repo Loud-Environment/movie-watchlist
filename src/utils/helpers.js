@@ -1,7 +1,16 @@
-export function getSearchParams(setMovie, movie) {
+export function getSearchParams(setMovie, setFilters) {
   return (formData) => {
     setMovie([]);
+    const movieYear = formData.get("movie-year");
+    const movieType = formData.get("movie-type");
     const movieName = formData.get("search-input");
+    setFilters((prev) => {
+      return {
+        ...prev,
+        y: movieYear ? movieYear : "",
+        type: movieType ? movieType : "",
+      };
+    });
     setMovie(movieName);
   };
 }
