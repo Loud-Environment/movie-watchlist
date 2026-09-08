@@ -36,6 +36,7 @@ export default function Home() {
           <button
             onClick={() => setOptionsShown((prev) => !prev)}
             className="search-param-btn"
+            type="button"
           >
             <IoMdOptions />
           </button>
@@ -45,19 +46,21 @@ export default function Home() {
         </div>
       </form>
       {optionsShown ? <SearchOptions /> : null}
-      {movieArray && movieArray.length > 0 ? (
-        <MovieList
-          movieArray={movieArray}
-          savedMoviesArray={savedMoviesArray}
-          setSavedMoviesArray={setSavedMoviesArray}
-        />
-      ) : error ? (
-        <h2 className="error-message">{error}</h2>
-      ) : isLoading ? (
-        <h2>Loading...</h2>
-      ) : (
-        <Placeholder origin="home" />
-      )}
+      <div className="results">
+        {movieArray && movieArray.length > 0 ? (
+          <MovieList
+            movieArray={movieArray}
+            savedMoviesArray={savedMoviesArray}
+            setSavedMoviesArray={setSavedMoviesArray}
+          />
+        ) : error ? (
+          <h2 className="error-message">{error}</h2>
+        ) : isLoading ? (
+          <h2>Loading...</h2>
+        ) : (
+          <Placeholder origin="home" />
+        )}
+      </div>
     </div>
   );
 }
