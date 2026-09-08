@@ -13,6 +13,7 @@ export default function MovieSection({
 
   return (
     <section className="movie-section">
+      <hr />
       <div className="wrapper">
         {movieObject.Poster ? (
           <img
@@ -54,7 +55,6 @@ export default function MovieSection({
           <p>{movieObject.Plot || "N/A"}</p>
         </div>
       </div>
-      <hr />
     </section>
   );
 }

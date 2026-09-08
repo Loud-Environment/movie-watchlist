@@ -3,6 +3,9 @@ import { getSearchParams } from "../utils/helpers";
 import useMovieSearch from "../hooks/useMovieSearch";
 import Placeholder from "../Components/Placeholder";
 import { MovieList } from "../Components/MovieList";
+import SearchOptions from "../Components/searchOptions";
+import { IoMdOptions } from "react-icons/io";
+import { FaSearch } from "react-icons/fa";
 
 export default function Home() {
   const [movie, setMovie] = React.useState(null);
@@ -14,6 +17,7 @@ export default function Home() {
   const [savedMoviesArray, setSavedMoviesArray] = React.useState(
     JSON.parse(localStorage.getItem("watchlist") ?? "[]"),
   );
+  const [optionsShown, setOptionsShown] = React.useState(false);
 
   return (
     <div className="wrapper placeholder-container">
@@ -29,29 +33,18 @@ export default function Home() {
             id="search-input"
             name="search-input"
           />
+          <button
+            onClick={() => setOptionsShown((prev) => !prev)}
+            className="search-param-btn"
+          >
+            <IoMdOptions />
+          </button>
           <button id="search-btn" type="submit" disabled={isLoading}>
-            Search
+            <FaSearch className="search-icon" />
           </button>
         </div>
-        <div className="search-filters">
-          <label htmlFor="movie-type">Type</label>
-          <select id="movie-type" name="movie-type">
-            <option value="">--any--</option>
-            <option value="Movie">Movie</option>
-            <option value="Series">Series</option>
-            <option value="Episode">Episode</option>
-          </select>
-          <label htmlFor="movie-year">Year</label>
-          <input
-            type="number"
-            id="movie-year"
-            name="movie-year"
-            placeholder="1997"
-            min="1888"
-            max="9999"
-          ></input>
-        </div>
       </form>
+      {optionsShown ? <SearchOptions /> : null}
       {movieArray && movieArray.length > 0 ? (
         <MovieList
           movieArray={movieArray}

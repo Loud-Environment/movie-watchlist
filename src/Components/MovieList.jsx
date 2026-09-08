@@ -15,5 +15,5 @@ export function MovieList({
     />
   ));
 
-  return <div>{movieSections}</div>;
+  return <div className="movie-list">{movieSections}</div>;
 }

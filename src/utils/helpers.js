@@ -4,11 +4,10 @@ export function getSearchParams(setMovie, setFilters) {
     const movieYear = formData.get("movie-year");
     const movieType = formData.get("movie-type");
     const movieName = formData.get("search-input");
-    setFilters((prev) => {
+    setFilters(() => {
       return {
-        ...prev,
-        y: movieYear ? movieYear : "",
-        type: movieType ? movieType : "",
+        ...(movieYear ? { y: movieYear } : ""),
+        ...(movieType ? { type: movieType } : ""),
       };
     });
     setMovie(movieName);

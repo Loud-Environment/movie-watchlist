@@ -80,9 +80,10 @@ nav {
 }
 
 .search-filters {
-  position: absolute;
-  bottom: -25%;
-  translate: 0 100%;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .search-filters label,
@@ -108,13 +109,48 @@ nav {
   width: 100px;
 }
 
+.search-param-btn,
+button#search-btn {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+}
+
+.search-param-btn {
+  right: 5%;
+  top: 50%;
+  translate: 0 -50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6b7280;
+  /* padding: 10px 10px; */
+}
+
+.search-param-btn svg {
+  font-size: 1.5rem;
+}
+
+button#search-btn {
+  position: absolute;
+  opacity: 50%;
+  top: 50%;
+  translate: 0 -50%;
+  left: 10px;
+}
+
+.search-icon {
+  color: #6b7280;
+  font-size: 1rem;
+}
+
 /* Styling the main */
 
 main {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 63px 10vw;
+  padding: 50px 10vw;
   position: relative;
 }
 
@@ -123,11 +159,13 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 
 main div.placeholder-container {
   flex: 1;
+  flex-direction: column;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -142,6 +180,10 @@ h2.error-message {
 }
 
 /* Styling the movie cards  */
+
+.movie-list section:first-child hr {
+  display: none;
+}
 
 .movie-section hr {
   margin: 21px 0;
@@ -257,35 +299,32 @@ a:hover {
   font-size: 1rem;
   color: #6b7280;
   padding: 15px 15px 15px 35px;
-  border-left: 1px solid #d1d5db;
-  border-bottom: 1px solid #d1d5db;
-  border-top: 1px solid #d1d5db;
-  border-right: none;
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
   overflow: auto;
 }
 
 button#search-btn {
+  /* display: none;
   padding: 15px 20px;
   font-size: 1rem;
   color: #374151;
   background-color: #f9fafb;
   border: 1px solid #d1d5db;
   border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
+  border-bottom-right-radius: 6px; */
   cursor: pointer;
 }
 
-button#search-btn:hover,
+/* button#search-btn:hover,
 button#search-btn:focus {
   background-color: white;
-}
+} */
 
-button#search-btn:active {
+/* button#search-btn:active {
   background-color: black;
   color: white;
-}
+} */
 
 /* Styling the main */
 
@@ -377,10 +416,10 @@ LoVeFearsHate */
     font-size: 1.125rem;
   }
 
-  button#search-btn {
+  /* button#search-btn {
     font-size: 1.125rem;
     padding: 10px 35px;
-  }
+  } */
 
   h1 {
     font-size: calc(42px * 1.3);

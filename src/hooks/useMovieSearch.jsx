@@ -8,24 +8,25 @@ export default function useMovieSearch(movie, filters) {
   {
     /** 
     
-    Что получилось: сделать черновые кнопки с фильтрами и передать их в хук, 
-    он их успешно видит и выводит в консоль.
+    Что получилось: 
+    - сделать черновые кнопки с фильтрами и передать их в хук, 
+    он их успешно видит и выводит в консоль
+    - подцепить filters к фетчу
 
-    Что не получилось:
-     - Почему-то если Movie не меняется, но меняется filters, например type, 
-     новый фетч не срабатывает
-     - Не подцепил filters к фетчу, он пока только выводится в консоль
-     - Не сделал нормальный дизайн для фильтров
-
+    Что не успел:
+     Не сделал нормальный дизайн для фильтров:
+     - сделать поисковую строку шириной 100%
+     - сделать строку с опциями поиска внутри поисковой справа и с иконочкой трёх полосок
+     - проверить, работает ли нормально кнопка сабмита из display:none и норм ли это вообще решение
+     - добавить красивый дизайн менюшке с опциями
+     - сделать плавную анимацию понтовую подвижным элементам 
     **/
   }
 
   React.useEffect(() => {
     async function fetchMovieIDs(movie) {
-      const params = new URLSearchParams({ s: movie });
-      console.log(filters);
+      const params = new URLSearchParams({ s: movie, ...filters });
 
-      console.log(`https://www.omdbapi.com/?${params}&apikey=345a7391`);
       try {
         setError(null);
         setMovieArray([]);
@@ -67,7 +68,7 @@ export default function useMovieSearch(movie, filters) {
     }
 
     movie && fetchMovieIDs(movie, filters);
-  }, [movie]);
+  }, [movie, filters]);
 
   return { movieArray, error, isLoading };
 }
