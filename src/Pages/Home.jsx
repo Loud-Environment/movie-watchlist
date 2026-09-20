@@ -30,18 +30,19 @@ export default function Home() {
             aria-label="Search for a movie"
             placeholder="Search for a movie"
             type="text"
+            className="search-input"
             id="search-input"
             name="search-input"
           />
+          <button className="search-btn" type="submit" disabled={isLoading}>
+            <FaSearch className="search-icon" />
+          </button>
           <button
             onClick={() => setOptionsShown((prev) => !prev)}
             className="search-param-btn"
             type="button"
           >
             <IoMdOptions />
-          </button>
-          <button id="search-btn" type="submit" disabled={isLoading}>
-            <FaSearch className="search-icon" />
           </button>
         </div>
       </form>

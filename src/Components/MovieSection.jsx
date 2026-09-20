@@ -33,8 +33,8 @@ export default function MovieSection({
             </p>
           </div>
           <div className="movie-meta">
-            <p>{movieObject.Runtime || "N/A"}</p>
-            <p>{movieObject.Genre || "N/A"}</p>
+            <p className="movie-year">{movieObject.Year || "N/A"}</p>
+            <p className="movie-genre">{movieObject.Genre || "N/A"}</p>
             <button
               className="add-to-watchlist-btn"
               onClick={() =>
@@ -52,7 +52,7 @@ export default function MovieSection({
               )}
             </button>
           </div>
-          <p>{movieObject.Plot || "N/A"}</p>
+          <p className="movie-plot">{movieObject.Plot || "N/A"}</p>
         </div>
       </div>
     </section>
