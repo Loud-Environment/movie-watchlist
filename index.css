@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: none;
 }
 
 button,
@@ -61,6 +62,15 @@ h4 {
   flex-direction: column;
 }
 
+nav,
+.search-line,
+.wrapper,
+.placeholder-container,
+.movie-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 /**** ****
     Header 
 **** ****/
@@ -85,14 +95,6 @@ nav {
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
-}
-
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible {
-  outline: 3px solid var(--color-star);
-  outline-offset: 3px;
 }
 
 a {
@@ -152,6 +154,8 @@ a:hover {
   justify-content: space-around;
   width: 100%;
   margin-bottom: var(--space-md);
+  text-align: center;
+  min-width: 300px;
 }
 
 .search-filters label,
@@ -167,10 +171,20 @@ a:hover {
 .search-filters input,
 .search-filters select,
 .search-filters option {
+  cursor: pointer;
   font-size: 1rem;
-  color: var(--color-text-muted);
-  padding: var(--space-md);
+  width: 100%;
+  min-width: 0;
   margin-bottom: var(--space-md);
+  padding: 10px 10px 10px 16px;
+  border: unset;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--color-text-label);
+}
+
+.search-filters input[placeholder] {
+  color: var(--color-text-label);
 }
 
 .search-filters input {
@@ -182,6 +196,7 @@ a:hover {
   position: absolute;
   background-color: rgba(255, 255, 255, 0);
   border: none;
+  cursor: pointer;
 }
 
 .search-btn {
@@ -190,11 +205,10 @@ a:hover {
   top: 50%;
   translate: 0 -50%;
   left: 12px;
-  cursor: pointer;
 }
 
 .search-param-btn {
-  right: 5%;
+  right: 15px;
   top: 50%;
   translate: 0 -50%;
   display: flex;
@@ -269,7 +283,7 @@ h2.error-message {
 
 /* Styling the movie cards */
 
-.movie-list section:first-child hr {
+.movie-list a:first-child section hr {
   display: none;
 }
 
@@ -392,7 +406,7 @@ h2.error-message {
   **** ****/
 
   header {
-    padding: calc(80px * 1.5) 10vw;
+    padding: 100px 10vw;
   }
 
   nav {
@@ -402,11 +416,11 @@ h2.error-message {
   }
 
   h1 {
-    font-size: calc(42px * 1.3);
+    font-size: calc(var(--space-lg) * 2);
   }
 
   a {
-    font-size: calc(var(--space-lg) * 1.3);
+    font-size: var(--space-lg);
   }
 
   /**** ****
@@ -426,8 +440,16 @@ h2.error-message {
     font-size: 1.5rem;
   }
 
+  .search-param-btn {
+    right: 25px;
+  }
+
   .search-param-btn svg {
     font-size: 2rem;
+  }
+
+  .search-filters div {
+    margin-inline: 50px;
   }
 
   /**** ****
@@ -486,5 +508,76 @@ h2.error-message {
 
   .movie-section hr {
     margin: 42px 0;
+  }
+}
+
+@media screen and (min-width: 60em) {
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible {
+    outline: 3px solid var(--color-star);
+    outline-offset: 3px;
+  }
+
+  /**** ****
+    Header 
+  **** ****/
+
+  header {
+    padding: 160px 10vw;
+  }
+
+  h1 {
+    font-size: calc(var(--space-lg) * 2.5);
+  }
+
+  a {
+    font-size: calc(var(--space-lg) * 1.5);
+  }
+
+  .search-filters {
+    margin-block: var(--space-lg);
+  }
+
+  .search-filters label {
+    margin-bottom: var(--space-md);
+    font-size: 1.5rem;
+  }
+
+  .search-filters input,
+  .search-filters select,
+  .search-filters option {
+    font-size: 1.125rem;
+    width: 150px;
+  }
+
+  /**** ****
+    Search 
+  **** ****/
+
+  .search-input {
+    font-size: 1.25rem;
+    padding: 0.9375em 0.9375em 0.9375em 3.5em;
+  }
+
+  .search-btn {
+    left: 25px;
+  }
+
+  .search-btn svg {
+    font-size: 1.5rem;
+  }
+
+  .search-param-btn svg {
+    font-size: 2rem;
+  }
+
+  /**** ****
+  Main content 
+  **** ****/
+
+  .movie-section img {
+    max-width: 200px;
   }
 }

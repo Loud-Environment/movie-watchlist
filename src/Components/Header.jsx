@@ -10,7 +10,9 @@ export default function Header() {
   return (
     <header>
       <nav>
-        <h1>{headerText}</h1>
+        <NavLink to={"/"}>
+          <h1>{headerText}</h1>
+        </NavLink>
         <NavLink to={location.pathname === "/" ? "/watchlist" : "/"}>
           {linkText}
         </NavLink>

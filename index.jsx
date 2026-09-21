@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./src/Components/Layout";
 import Home from "./src/Pages/Home";
 import Watchlist from "./src/Pages/Watchlist";
+import MovieDetails from "./src/Pages/MovieDetails";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/watchlist" element={<Watchlist />} />
+          <Route path="/watchlist" element={<Watchlist />}></Route>
+          <Route path=":id" element={<MovieDetails />} />
         </Route>
       </Routes>
     </BrowserRouter>

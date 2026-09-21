@@ -3,7 +3,7 @@ import { getSearchParams } from "../utils/helpers";
 import useMovieSearch from "../hooks/useMovieSearch";
 import Placeholder from "../Components/Placeholder";
 import { MovieList } from "../Components/MovieList";
-import SearchOptions from "../Components/searchOptions";
+import SearchOptions from "../Components/SearchOptions";
 import { IoMdOptions } from "react-icons/io";
 import { FaSearch } from "react-icons/fa";
 
