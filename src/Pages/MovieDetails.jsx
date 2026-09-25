@@ -12,7 +12,9 @@ export default function MovieDetails() {
   console.log(genres);
 
   return isLoading ? (
-    <h2>Loading...</h2>
+    <div className="loading-container">
+      <h2>Loading...</h2>
+    </div>
   ) : (
     <div className="movie-details-page">
       <div className="wrapper">
