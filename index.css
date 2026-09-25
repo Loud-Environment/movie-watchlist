@@ -283,7 +283,7 @@ h2.error-message {
 
 /* Styling the movie cards */
 
-.movie-list a:first-child section hr {
+.movie-list section:first-child hr {
   display: none;
 }
 
@@ -306,9 +306,20 @@ h2.error-message {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: var(--space-lg);
+  gap: var(--space-md);
   width: 100%;
   min-width: 0;
+}
+
+.movie-link {
+  text-decoration: underline;
+  color: var(--color-black);
+}
+
+.movie-link:hover,
+.movie-link:visited {
+  text-decoration: none;
+  color: var(--color-black);
 }
 
 .movie-title,
@@ -468,6 +479,10 @@ h2.error-message {
     max-width: 140px;
   }
 
+  .movie-data {
+    gap: var(--space-lg);
+  }
+
   i.fa-film {
     font-size: 6rem;
   }
@@ -511,7 +526,7 @@ h2.error-message {
   }
 }
 
-@media screen and (min-width: 60em) {
+@media screen and (min-width: 100em) {
   a:focus-visible,
   button:focus-visible,
   input:focus-visible,
