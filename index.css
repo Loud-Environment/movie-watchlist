@@ -56,6 +56,10 @@ h4 {
   line-height: 1.2;
 }
 
+h1 {
+  font-size: 2.25rem;
+}
+
 .site-wrapper {
   min-height: 100dvh;
   display: flex;
@@ -81,7 +85,7 @@ nav,
 
 header {
   position: relative;
-  padding: 80px 10vw;
+  padding: 70px 10vw;
   color: white;
   background-image: url(src/images/header-background.png);
   background-size: cover;
@@ -94,7 +98,7 @@ header {
 nav {
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
+  gap: var(--space-md);
 }
 
 a {
@@ -291,6 +295,10 @@ h2.error-message {
   margin: 21px 0;
 }
 
+.movie-section .wrapper:hover {
+  background-color: var(--color-border);
+}
+
 .wrapper {
   display: flex;
   align-items: center;
@@ -417,7 +425,7 @@ h2.error-message {
   **** ****/
 
   header {
-    padding: 100px 10vw;
+    padding: 80px 10vw;
   }
 
   nav {
@@ -540,7 +548,7 @@ h2.error-message {
   **** ****/
 
   header {
-    padding: 160px 10vw;
+    padding: 100px 10vw;
   }
 
   h1 {
