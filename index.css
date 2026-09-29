@@ -30,6 +30,7 @@ textarea {
   --color-border: #d1d5db;
   --color-error: #9e2a2b;
   --color-star: #fec654;
+  --color-placeholder: #dfdddd;
 
   --radius-sm: 6px;
   --radius-md: 10px;
@@ -384,6 +385,8 @@ h2.error-message {
   margin-left: auto;
   font-size: 0.75rem;
   flex-shrink: 0;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
 }
 
 .add-to-watchlist-btn:active,
@@ -598,5 +601,10 @@ h2.error-message {
 
   .movie-section img {
     max-width: 200px;
+  }
+
+  .add-to-watchlist-btn:hover,
+  .remove-from-watchlist-btn:hover {
+    background-color: var(--color-placeholder);
   }
 }
