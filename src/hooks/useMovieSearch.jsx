@@ -4,6 +4,7 @@ export default function useMovieSearch(movie, filters) {
   const [movieArray, setMovieArray] = React.useState([]);
   const [error, setError] = React.useState();
   const [isLoading, setIsLoading] = React.useState(false);
+  const API_KEY = import.meta.env.VITE_OMDB_API_KEY;
 
   React.useEffect(() => {
     async function fetchMovieIDs(movie) {
@@ -18,7 +19,7 @@ export default function useMovieSearch(movie, filters) {
 
         if (!regex.test(movie)) {
           const firstRes = await fetch(
-            `https://www.omdbapi.com/?${params}&apikey=345a7391`,
+            `https://www.omdbapi.com/?${params}&apikey=${API_KEY}`,
           );
 
           if (!firstRes.ok) {
@@ -30,7 +31,7 @@ export default function useMovieSearch(movie, filters) {
           if (searchData.Response === "True") {
             for (const movie of searchData.Search) {
               const secondRes = await fetch(
-                `https://www.omdbapi.com/?i=${movie.imdbID}&apikey=345a7391`,
+                `https://www.omdbapi.com/?i=${movie.imdbID}&apikey=${API_KEY}`,
               );
               const secondSearchData = await secondRes.json();
               newMovieArray.push(secondSearchData);
@@ -46,7 +47,7 @@ export default function useMovieSearch(movie, filters) {
           }
         } else {
           const res = await fetch(
-            `https://www.omdbapi.com/?i=${movie}&apikey=345a7391`,
+            `https://www.omdbapi.com/?i=${movie}&apikey=${API_KEY}`,
           );
 
           if (!res.ok) {
@@ -58,7 +59,11 @@ export default function useMovieSearch(movie, filters) {
           setMovieArray(searchData);
         }
       } catch (err) {
-        setError(err.errorMessage);
+        setError(
+          err.errorMessage ??
+            err.message ??
+            "Something went wrong. Please try again.",
+        );
       } finally {
         setIsLoading(false);
       }
