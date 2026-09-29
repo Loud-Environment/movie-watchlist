@@ -295,10 +295,6 @@ h2.error-message {
   margin: 21px 0;
 }
 
-.movie-section .wrapper:hover {
-  background-color: var(--color-border);
-}
-
 .wrapper {
   display: flex;
   align-items: center;
